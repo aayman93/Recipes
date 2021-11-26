@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclers()
-        subscribeToObservers()
+        subscribeToObservables()
     }
 
     private fun setupRecyclers() {
@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
         binding.mealsRecycler.adapter = mealAdapter
     }
 
-    private fun subscribeToObservers() {
+    private fun subscribeToObservables() {
         viewModel.categoriesResponse.observe(viewLifecycleOwner, EventObserver(
             onError = {
                 binding.mainProgressBar.isVisible = false

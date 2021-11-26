@@ -1,7 +1,65 @@
 <resources>
     <string name="app_name">Recipes</string>
     <string name="title_home">Home</string>
-    <string name="title_find_recipe">Find a Recipe</string>
+    <string name="title_find_recipe">Find Recipe</string>
     <string name="title_favourites">Favourites</string>
     <string name="categories">Categories</string>
+    <string name="name">Name</string>
+    <string name="category">Category</string>
+    <string name="country">Country</string>
+    <string name="main_ingredient">Main Ingredient</string>
+    <string name="find_recipes_by_name">Find recipes by name</string>
+    <string name="find_recipes_by_category">Find recipes by category</string>
+    <string name="find_recipes_by_country">Find recipes by country</string>
+    <string name="find_recipes_by_main_ingredient">Find recipes by main ingredient</string>
+    <string name="search">Search</string>
+    <string name="find_recipes_message">Find a recipe by name, category, country or main ingredient</string>
+    <string name="find_recipes_empty_state">No recipes found! try a different search</string>
+
+    <string-array name="categories_array">
+        <item>Beef</item>
+        <item>Breakfast</item>
+        <item>Chicken</item>
+        <item>Dessert</item>
+        <item>Goat</item>
+        <item>Lamb</item>
+        <item>Miscellaneous</item>
+        <item>Pasta</item>
+        <item>Pork</item>
+        <item>Seafood</item>
+        <item>Side</item>
+        <item>Starter</item>
+        <item>Vegan</item>
+        <item>Vegetarian</item>
+    </string-array>
+
+    <string-array name="countries_array">
+        <item>American</item>
+        <item>British</item>
+        <item>Canadian</item>
+        <item>Chinese</item>
+        <item>Croatian</item>
+        <item>Dutch</item>
+        <item>Egyptian</item>
+        <item>French</item>
+        <item>Greek</item>
+        <item>Indian</item>
+        <item>Irish</item>
+        <item>Italian</item>
+        <item>Jamaican</item>
+        <item>Japanese</item>
+        <item>Kenyan</item>
+        <item>Malaysian</item>
+        <item>Mexican</item>
+        <item>Moroccan</item>
+        <item>Polish</item>
+        <item>Portuguese</item>
+        <item>Russian</item>
+        <item>Spanish</item>
+        <item>Thai</item>
+        <item>Tunisian</item>
+        <item>Turkish</item>
+        <item>Vietnamese</item>
+        <item>Unknown</item>
+    </string-array>
 </resources>
