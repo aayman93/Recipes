@@ -15,6 +15,7 @@
     <string name="search">Search</string>
     <string name="find_recipes_message">Find a recipe by name, category, country or main ingredient</string>
     <string name="find_recipes_empty_state">No recipes found! try a different search</string>
+    <string name="favourite_recipes_empty_state">All your favourite recipes will be shown here</string>
 
     <string-array name="categories_array">
         <item>Beef</item>

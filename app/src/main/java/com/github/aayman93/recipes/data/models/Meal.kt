@@ -1,26 +1,29 @@
 package com.github.aayman93.recipes.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "meals")
 data class Meal(
     @SerializedName("idMeal")
-    val id: String,
+    @PrimaryKey val id: String,
     @SerializedName("strMeal")
     val name: String,
     @SerializedName("strMealThumb")
     val thumbnail: String,
     @SerializedName("dateModified")
-    val dateModified: Any?,
+    val dateModified: String?,
     @SerializedName("strArea")
     val strArea: String,
     @SerializedName("strCategory")
     val strCategory: String,
     @SerializedName("strCreativeCommonsConfirmed")
-    val strCreativeCommonsConfirmed: Any?,
+    val strCreativeCommonsConfirmed: String?,
     @SerializedName("strDrinkAlternate")
-    val strDrinkAlternate: Any?,
+    val strDrinkAlternate: String?,
     @SerializedName("strImageSource")
-    val strImageSource: Any?,
+    val strImageSource: String?,
     @SerializedName("strIngredient1")
     val strIngredient1: String?,
     @SerializedName("strIngredient10")
@@ -62,7 +65,7 @@ data class Meal(
     @SerializedName("strIngredient9")
     val strIngredient9: String?,
     @SerializedName("strInstructions")
-    val strInstructions: String,
+    val instructions: String,
     @SerializedName("strMeasure1")
     val strMeasure1: String?,
     @SerializedName("strMeasure10")
@@ -106,7 +109,7 @@ data class Meal(
     @SerializedName("strSource")
     val strSource: String?,
     @SerializedName("strTags")
-    val strTags: Any?,
+    val strTags: String?,
     @SerializedName("strYoutube")
     val strYoutube: String
 )
