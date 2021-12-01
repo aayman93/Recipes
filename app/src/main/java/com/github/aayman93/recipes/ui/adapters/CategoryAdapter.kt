@@ -13,7 +13,7 @@ import javax.inject.Inject
 class CategoryAdapter @Inject constructor() :
     ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(Differ) {
 
-    private var selectedPosition: Int = 0
+    var selectedPosition: Int = 0
 
     private var onCategoryClickListener: ((Category) -> Unit)? = null
 

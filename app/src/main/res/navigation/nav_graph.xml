@@ -23,6 +23,14 @@
     <fragment
         android:id="@+id/recipeDetailsFragment"
         android:name="com.github.aayman93.recipes.ui.fragments.RecipeDetailsFragment"
-        android:label="fragment_recipe_details"
-        tools:layout="@layout/fragment_recipe_details" />
+        android:label="@string/title_recipe_details"
+        tools:layout="@layout/fragment_recipe_details" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_recipeDetailsFragment"
+        app:destination="@id/recipeDetailsFragment"
+        app:launchSingleTop="true" />
 </navigation>

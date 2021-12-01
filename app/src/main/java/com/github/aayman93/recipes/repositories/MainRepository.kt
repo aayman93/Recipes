@@ -46,6 +46,20 @@ class MainRepository @Inject constructor(
         }
     }
 
+    suspend fun getMealById(id: String): Resource<MealsResponse> {
+        return withContext(Dispatchers.IO) {
+            safeCall {
+                val response = api.getMealById(id)
+                val result = response.body()
+                if (response.isSuccessful && result != null) {
+                    Resource.Success(result)
+                } else {
+                    Resource.Error(response.message())
+                }
+            }
+        }
+    }
+
     suspend fun getIngredientList(): Resource<IngredientsResponse> {
         return withContext(Dispatchers.IO) {
             safeCall {
@@ -74,24 +88,10 @@ class MainRepository @Inject constructor(
         }
     }
 
-    suspend fun findRecipeByCategory(category: String): Resource<MealsResponse> {
+    suspend fun findRecipeByArea(area: String): Resource<MealsResponse> {
         return withContext(Dispatchers.IO) {
             safeCall {
-                val response = api.findRecipeByCategory(category)
-                val result = response.body()
-                if (response.isSuccessful && result != null) {
-                    Resource.Success(result)
-                } else {
-                    Resource.Error(response.message())
-                }
-            }
-        }
-    }
-
-    suspend fun findRecipeByCountry(country: String): Resource<MealsResponse> {
-        return withContext(Dispatchers.IO) {
-            safeCall {
-                val response = api.findRecipeByCountry(country)
+                val response = api.findRecipeByArea(area)
                 val result = response.body()
                 if (response.isSuccessful && result != null) {
                     Resource.Success(result)
@@ -121,6 +121,12 @@ class MainRepository @Inject constructor(
     suspend fun addMealToFavourites(meal: Meal) {
         withContext(Dispatchers.IO) {
             recipeDao.addMeal(meal)
+        }
+    }
+
+    suspend fun removeMealFromFavourites(meal: Meal) {
+        withContext(Dispatchers.IO) {
+            recipeDao.deleteMeal(meal)
         }
     }
 }

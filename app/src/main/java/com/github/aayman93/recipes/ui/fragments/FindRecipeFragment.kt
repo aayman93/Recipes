@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.github.aayman93.recipes.R
 import com.github.aayman93.recipes.databinding.FragmentFindRecipeBinding
 import com.github.aayman93.recipes.ui.adapters.MealAdapter
@@ -57,9 +58,9 @@ class FindRecipeFragment : Fragment() {
                         showAndHideLayouts(isByCategory = true)
                         buttonSearch.setOnClickListener { findRecipeByCategory() }
                     }
-                    R.id.chip_by_country -> {
-                        showAndHideLayouts(isByCountry = true)
-                        buttonSearch.setOnClickListener { findRecipeByCountry() }
+                    R.id.chip_by_area -> {
+                        showAndHideLayouts(isByArea = true)
+                        buttonSearch.setOnClickListener { findRecipeByArea() }
                     }
                     R.id.chip_by_ingredient -> {
                         showAndHideLayouts(isByIngredient = true)
@@ -72,6 +73,10 @@ class FindRecipeFragment : Fragment() {
 
     private fun setupRecyclers() {
         binding.mealsRecycler.adapter = mealAdapter
+        mealAdapter.setOnMealClickListener { meal ->
+            val action = FindRecipeFragmentDirections.actionGlobalRecipeDetailsFragment(meal.id)
+            findNavController().navigate(action)
+        }
     }
 
     private fun subscribeToObservables() {
@@ -132,9 +137,9 @@ class FindRecipeFragment : Fragment() {
         )
     }
 
-    private fun findRecipeByCountry() {
-        viewModel.findRecipeByCountry(
-            binding.spinnerCountries.selectedItem.toString()
+    private fun findRecipeByArea() {
+        viewModel.findRecipeByArea(
+            binding.spinnerArea.selectedItem.toString()
         )
     }
 
@@ -147,13 +152,13 @@ class FindRecipeFragment : Fragment() {
     private fun showAndHideLayouts(
         isByName: Boolean = false,
         isByCategory: Boolean = false,
-        isByCountry: Boolean = false,
+        isByArea: Boolean = false,
         isByIngredient: Boolean = false
     ) {
         with(binding) {
             layoutFindByName.isVisible = isByName
             layoutFindByCategory.isVisible = isByCategory
-            layoutFindByCountry.isVisible = isByCountry
+            layoutFindByArea.isVisible = isByArea
             layoutFindByMainIngredient.isVisible = isByIngredient
         }
     }

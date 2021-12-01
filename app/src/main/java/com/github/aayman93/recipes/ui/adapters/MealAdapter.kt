@@ -13,6 +13,12 @@ import javax.inject.Inject
 
 class MealAdapter @Inject constructor() : ListAdapter<Meal, MealAdapter.MealViewHolder>(Differ) {
 
+    private var onMealClickListener: ((Meal) -> Unit)? = null
+
+    fun setOnMealClickListener(listener: (Meal) -> Unit) {
+        onMealClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
         val binding = ItemMealBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -45,6 +51,10 @@ class MealAdapter @Inject constructor() : ListAdapter<Meal, MealAdapter.MealView
             with(binding) {
                 ivMealImage.load("${meal.thumbnail}$THUMBNAIL_POSTFIX")
                 tvMealName.text = meal.name
+
+                root.setOnClickListener {
+                    onMealClickListener?.invoke(meal)
+                }
             }
         }
     }

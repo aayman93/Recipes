@@ -48,11 +48,11 @@
             android:text="@string/category" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_by_country"
+            android:id="@+id/chip_by_area"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/country" />
+            android:text="@string/area" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_by_ingredient"
@@ -123,7 +123,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_find_by_country"
+            android:id="@+id/layout_find_by_area"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -132,16 +132,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/spinner_countries"
-                android:text="@string/find_recipes_by_country"
+                android:labelFor="@id/spinner_area"
+                android:text="@string/find_recipes_by_area"
                 android:textSize="@dimen/_12ssp" />
 
             <Spinner
-                android:id="@+id/spinner_countries"
+                android:id="@+id/spinner_area"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:entries="@array/countries_array"
+                android:entries="@array/area_array"
                 android:paddingHorizontal="@dimen/_8sdp" />
         </LinearLayout>
 

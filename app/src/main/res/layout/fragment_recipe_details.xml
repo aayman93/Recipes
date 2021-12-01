@@ -1,10 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.RecipeDetailsFragment">
+
+    <ImageView
+        android:id="@+id/iv_recipe_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/recipe_image" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/gradient_overlay"
+        app:layout_constraintBottom_toBottomOf="@id/iv_recipe_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_recipe_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_recipe_image"
+        app:layout_constraintEnd_toStartOf="@id/fab_favourite"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Beef and Mustard Pie" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:contentDescription="@string/add_to_favourites"
+        android:src="@drawable/ic_favorite"
+        android:visibility="gone"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="@id/iv_recipe_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_recipe_image"
+        app:tint="@color/white"
+        tools:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_recipe_image"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_12sdp">
+
+            <TextView
+                android:id="@+id/label_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_category"
+                app:layout_constraintStart_toEndOf="@id/label_category"
+                tools:text="Beef" />
+
+            <TextView
+                android:id="@+id/label_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/area"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_category" />
+
+            <TextView
+                android:id="@+id/tv_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_area"
+                app:layout_constraintStart_toStartOf="@id/tv_category"
+                tools:text="British" />
+
+            <TextView
+                android:id="@+id/label_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/ingredients"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_area" />
+
+            <TextView
+                android:id="@+id/tv_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:lineSpacingExtra="@dimen/_4sdp"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_ingredients"
+                tools:text="1kg Beef\n2 tbs Plain Flour\n2 tbs Rapeseed Oil" />
+
+            <TextView
+                android:id="@+id/label_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/instructions"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_ingredients" />
+
+            <TextView
+                android:id="@+id/tv_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:lineSpacingExtra="@dimen/_4sdp"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_instructions"
+                tools:text="Preheat the oven to 150C/300F/Gas 2.\nToss the beef and flour together in a bowl with some salt and black pepper." />
+
+            <LinearLayout
+                android:id="@+id/layout_watch_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_instructions">
+
+                <TextView
+                    android:id="@+id/button_watch_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/watch_recipe_video"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/_14ssp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="-2dp"
+                    android:background="@color/blue" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_recipe_image"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

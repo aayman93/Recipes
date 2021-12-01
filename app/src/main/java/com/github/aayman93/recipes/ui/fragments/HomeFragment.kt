@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.github.aayman93.recipes.databinding.FragmentHomeBinding
 import com.github.aayman93.recipes.ui.adapters.CategoryAdapter
 import com.github.aayman93.recipes.ui.adapters.MealAdapter
@@ -49,6 +50,10 @@ class HomeFragment : Fragment() {
         }
 
         binding.mealsRecycler.adapter = mealAdapter
+        mealAdapter.setOnMealClickListener { meal ->
+            val action = HomeFragmentDirections.actionGlobalRecipeDetailsFragment(meal.id)
+            findNavController().navigate(action)
+        }
     }
 
     private fun subscribeToObservables() {
@@ -68,7 +73,9 @@ class HomeFragment : Fragment() {
             val categories = categoriesResponse.categories
             if (!categories.isNullOrEmpty()) {
                 categoryAdapter.submitList(categories)
-                viewModel.getMealsByCategory(categories[0].name)
+                viewModel.getMealsByCategory(
+                    categories[categoryAdapter.selectedPosition].name
+                )
             }
         })
 

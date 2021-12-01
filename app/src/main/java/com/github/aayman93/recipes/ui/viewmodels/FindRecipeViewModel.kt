@@ -52,15 +52,15 @@ class FindRecipeViewModel @Inject constructor(
     fun findRecipeByCategory(category: String) {
         _mealsResponse.postValue(Event(Resource.Loading()))
         viewModelScope.launch(Dispatchers.Main) {
-            val result = repository.findRecipeByCategory(category)
+            val result = repository.getMealsByCategory(category)
             _mealsResponse.postValue(Event(result))
         }
     }
 
-    fun findRecipeByCountry(country: String) {
+    fun findRecipeByArea(area: String) {
         _mealsResponse.postValue(Event(Resource.Loading()))
         viewModelScope.launch(Dispatchers.Main) {
-            val result = repository.findRecipeByCountry(country)
+            val result = repository.findRecipeByArea(area)
             _mealsResponse.postValue(Event(result))
         }
     }

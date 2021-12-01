@@ -17,6 +17,11 @@ interface RecipesApi {
         @Query("c") categoryName: String
     ): Response<MealsResponse>
 
+    @GET("lookup.php")
+    suspend fun getMealById(
+        @Query("i") id: String
+    ): Response<MealsResponse>
+
     @GET("list.php")
     suspend fun getIngredientList(
         @Query("i") query: String = "list"
@@ -28,13 +33,8 @@ interface RecipesApi {
     ): Response<MealsResponse>
 
     @GET("filter.php")
-    suspend fun findRecipeByCategory(
-        @Query("c") category: String
-    ): Response<MealsResponse>
-
-    @GET("filter.php")
-    suspend fun findRecipeByCountry(
-        @Query("a") country: String
+    suspend fun findRecipeByArea(
+        @Query("a") area: String
     ): Response<MealsResponse>
 
     @GET("filter.php")

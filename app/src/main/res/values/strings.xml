@@ -3,19 +3,26 @@
     <string name="title_home">Home</string>
     <string name="title_find_recipe">Find Recipe</string>
     <string name="title_favourites">Favourites</string>
+    <string name="title_recipe_details">Recipe Details</string>
     <string name="categories">Categories</string>
     <string name="name">Name</string>
     <string name="category">Category</string>
-    <string name="country">Country</string>
+    <string name="area">Area</string>
     <string name="main_ingredient">Main Ingredient</string>
     <string name="find_recipes_by_name">Find recipes by name</string>
     <string name="find_recipes_by_category">Find recipes by category</string>
-    <string name="find_recipes_by_country">Find recipes by country</string>
+    <string name="find_recipes_by_area">Find recipes by area</string>
     <string name="find_recipes_by_main_ingredient">Find recipes by main ingredient</string>
     <string name="search">Search</string>
-    <string name="find_recipes_message">Find a recipe by name, category, country or main ingredient</string>
+    <string name="find_recipes_message">Find a recipe by name, category, area or main ingredient</string>
     <string name="find_recipes_empty_state">No recipes found! try a different search</string>
     <string name="favourite_recipes_empty_state">All your favourite recipes will be shown here</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
+    <string name="watch_recipe_video">Watch Recipe\'s Video</string>
+    <string name="add_to_favourites">Add to Favourites</string>
+    <string name="recipe_added_to_favourites">Recipe added to favourites successfully</string>
+    <string name="recipe_removed">Recipe removed successfully</string>
 
     <string-array name="categories_array">
         <item>Beef</item>
@@ -34,7 +41,7 @@
         <item>Vegetarian</item>
     </string-array>
 
-    <string-array name="countries_array">
+    <string-array name="area_array">
         <item>American</item>
         <item>British</item>
         <item>Canadian</item>
